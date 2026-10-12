@@ -924,3 +924,27 @@ body.menu-abierto { overflow: hidden; }
 .marca-card h3 { font-size: 1.25rem; margin-bottom: var(--s-1); }
 .marca-card .marca-card__rubro { font-size: var(--t-sm); margin-bottom: var(--s-2); }
 .marca-card .enlace-flecha { font-size: var(--t-sm); overflow-wrap: anywhere; }
+
+/* 14. BLOG ---------------------------------------------------------------- */
+.post-card { display: flex; flex-direction: column; }
+.post-card__titulo { font-size: 1.375rem; line-height: 1.25; margin-bottom: var(--s-3); }
+.post-card__titulo a { color: var(--texto); text-decoration: none; }
+.post-card__titulo a:hover { color: var(--rojo); }
+.post-card__titulo a::after { content: ""; position: absolute; inset: 0; } /* toda la tarjeta es clicable */
+.post-card { position: relative; }
+.post-card .post-meta:last-child { margin-top: auto; }
+.post-meta { font-size: var(--t-xs); color: var(--texto-2); margin-bottom: var(--s-3); }
+.post-cat { color: var(--rojo); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.articulo .portada h1 { max-width: none; font-size: clamp(1.875rem, 1.3rem + 2.6vw, 3rem); margin-bottom: 0; }
+.articulo__cuerpo { font-size: 1.0625rem; }
+.articulo__cuerpo p, .articulo__cuerpo li { color: #333; }
+.articulo__intro { font-size: var(--t-lg); color: var(--texto) !important; }
+.articulo__cuerpo h2 { font-size: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem); margin-top: var(--s-7); }
+.articulo__cta {
+  margin: var(--s-7) 0 var(--s-6);
+  padding: var(--s-6);
+  background: var(--hueso);
+  border-left: 4px solid var(--rojo);
+  border-radius: 0 var(--radio) var(--radio) 0;
+}
+.articulo__cta p { margin-bottom: var(--s-4); }
