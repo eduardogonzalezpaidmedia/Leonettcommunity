@@ -31,8 +31,6 @@ Con un editor como VS Code usa "Buscar y reemplazar en todos los archivos":
 
 | Buscar | Reemplazar por | Dónde aparece |
 |---|---|---|
-| `56900000000` | Tu WhatsApp, solo dígitos (56 9 XXXX XXXX) | Todas las páginas y `js/main.js` |
-| `contacto@tudominio.cl` | Tu email | Todas las páginas |
 | `https://www.tudominio.cl` | Tu dominio real | Todas las páginas, `robots.txt`, `sitemap.xml` |
 | `[` | Revisa uno por uno cada texto entre corchetes | Cifras, casos, testimonios, historia, legales |
 
@@ -70,7 +68,8 @@ Sube todo el contenido de esta carpeta a la carpeta pública de tu hosting (`pub
 
 ## Checklist final
 
-- [ ] WhatsApp, email y dominio reemplazados
+- [x] WhatsApp (+56 9 4995 5184) y email (info@leonettcommunity.com) configurados
+- [ ] Dominio reemplazado
 - [ ] No queda ningún texto entre corchetes visible
 - [ ] Cada promesa del sitio corresponde a lo que entregas (diagnóstico gratis de 30 minutos, respuesta en 24 horas hábiles, listas de "Qué incluye")
 - [ ] Privacidad y términos revisados por un abogado, sin el aviso amarillo

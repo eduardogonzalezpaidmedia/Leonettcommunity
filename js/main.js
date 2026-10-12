@@ -11,7 +11,7 @@
   var CONFIG = {
     // Número de WhatsApp en formato internacional, solo dígitos (56 + 9 + número).
     // Se usa cuando el formulario se envía por WhatsApp.
-    whatsapp: "56900000000",
+    whatsapp: "56949955184",
 
     // Página a la que se redirige después de enviar el formulario por Formspree.
     paginaGracias: "gracias.html"
