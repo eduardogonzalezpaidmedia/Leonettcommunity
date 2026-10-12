@@ -126,7 +126,7 @@
   // Arma el mensaje de WhatsApp con texto plano (nunca se inserta como HTML).
   function armarWhatsApp(datos) {
     var lineas = [
-      "Hola, quiero un diagnóstico gratis.",
+      "Hola, quiero agendar un diagnóstico.",
       "",
       "Nombre: " + datos.get("nombre"),
       "Empresa: " + datos.get("empresa"),

@@ -71,7 +71,7 @@ Sube todo el contenido de esta carpeta a la carpeta pública de tu hosting (`pub
 - [x] WhatsApp (+56 9 4995 5184) y email (info@leonettcommunity.com) configurados
 - [ ] Dominio reemplazado
 - [ ] No queda ningún texto entre corchetes visible
-- [ ] Cada promesa del sitio corresponde a lo que entregas (diagnóstico gratis de 30 minutos, respuesta en 24 horas hábiles, listas de "Qué incluye")
+- [ ] Cada promesa del sitio corresponde a lo que entregas (diagnóstico de 30 minutos, respuesta en 24 horas hábiles, listas de "Qué incluye")
 - [ ] Privacidad y términos revisados por un abogado, sin el aviso amarillo
 - [ ] Formulario probado desde el celular
 - [ ] Certificado SSL (https) activo en el hosting
