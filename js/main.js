@@ -18,6 +18,8 @@
 
     // Pop-up de descuento: correo que recibe los registros y segundos antes de mostrarlo.
     popupDestino: "info@leonettcommunity.com",
+    // Formulario "Web 5%" de Brevo: guarda cada registro en la lista "Descuento 5%".
+    brevoForm: "https://5ae0d0ec.sibforms.com/serve/MUIFAEcJuZtoJ3y3w3ap8wlTQxs7yPtEvB3KsPSTWcZMxEnJ7XDpX2rQ0bvmqDLJYaXrhvyrST30m5QljlZ9kj7UosBZEyCLY345vM9V01aElRLv0j1cILwj23ugCh0n8xSL2gsq-LTq6fdYckSI944hRgaZZuMXxrLZF_HVNhKpm_ZDfDYpR3jHNHMNe_a4G9uk01w-huK1ntmAXw==",
     popupSegundos: 10,
     // Días que el pop-up no vuelve a aparecer si la persona lo cierra.
     popupDiasPausa: 7
@@ -312,14 +314,37 @@
       boton.disabled = true;
       boton.textContent = "Enviando…";
 
-      fetch("https://formsubmit.co/ajax/" + CONFIG.popupDestino, {
+      // Teléfono para Brevo: prefijo de país aparte y número sin "+" ni espacios.
+      var digitos = String(datos.get("telefono")).replace(/\D/g, "");
+      var prefijo = "+56";
+      if (digitos.indexOf("56") === 0 && digitos.length >= 11) digitos = digitos.slice(2);
+
+      var brevo = new URLSearchParams();
+      brevo.append("EMAIL", datos.get("email"));
+      brevo.append("NOMBRE", datos.get("nombre"));
+      brevo.append("SMS__COUNTRY_CODE", prefijo);
+      brevo.append("SMS", digitos);
+      brevo.append("email_address_check", "");
+      brevo.append("locale", "es");
+      brevo.append("html_type", "simple");
+
+      // 1) Brevo: agrega el contacto a la lista (la respuesta no es legible desde otro dominio).
+      var envioBrevo = fetch(CONFIG.brevoForm, { method: "POST", mode: "no-cors", body: brevo })
+        .then(function () { return true; });
+
+      // 2) FormSubmit: aviso por correo a info@leonettcommunity.com.
+      var envioCorreo = fetch("https://formsubmit.co/ajax/" + CONFIG.popupDestino, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(cuerpo)
       })
         .then(function (r) { return r.json(); })
-        .then(function (res) {
-          if (String(res.success) !== "true") throw new Error(res.message || "Error");
+        .then(function (res) { return String(res.success) === "true"; })
+        .catch(function () { return false; });
+
+      Promise.all([envioBrevo.catch(function () { return false; }), envioCorreo])
+        .then(function (resultados) {
+          if (!resultados[0] && !resultados[1]) throw new Error("Sin envío");
           guardarPopup("registrado");
           dialogo.querySelector(".popup__paso").hidden = true;
           ok.hidden = false;
