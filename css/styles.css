@@ -709,7 +709,7 @@ body.menu-abierto { overflow: hidden; }
 .detalle:first-of-type { padding-top: 0; }
 .detalle:last-of-type { border-bottom: 0; padding-bottom: 0; }
 @media (min-width: 900px) { .detalle { grid-template-columns: 0.9fr 1.1fr; gap: var(--s-8); } }
-.detalle__num { font-family: var(--f-titulo); font-size: 1rem; font-weight: 700; color: var(--dorado); letter-spacing: 0.1em; }
+.detalle__num { font-family: var(--f-titulo); font-size: 1rem; font-weight: 700; color: var(--rojo); letter-spacing: 0.1em; }
 .detalle h2 { font-size: clamp(1.625rem, 1.3rem + 1.5vw, 2.25rem); margin-top: var(--s-2); }
 .detalle h3 { font-family: var(--f-texto); font-size: var(--t-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--texto-2); margin-bottom: var(--s-3); }
 .detalle__para { background: var(--hueso); border-radius: var(--radio); padding: var(--s-5); margin-bottom: var(--s-5); }
