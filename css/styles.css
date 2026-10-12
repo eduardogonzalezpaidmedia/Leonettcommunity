@@ -238,6 +238,8 @@ a:hover { color: var(--rojo-hover); }
   margin-bottom: var(--s-5);
 }
 .icono svg { width: 26px; height: 26px; }
+.icono--wa { background: #E7F9EE; }
+.icono img { width: 24px; height: 24px; }
 
 .enlace-flecha {
   display: inline-flex;
@@ -431,7 +433,7 @@ body.menu-abierto { overflow: hidden; }
   transition: background-color var(--trans), color var(--trans), border-color var(--trans), transform var(--trans), box-shadow var(--trans);
 }
 .btn:active { transform: translateY(1px); }
-.btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+.btn svg, .btn .ico-wa { width: 20px; height: 20px; flex-shrink: 0; }
 
 .btn--primario { background: var(--rojo); color: #fff; box-shadow: 0 6px 18px rgba(191, 13, 13, 0.25); }
 .btn--primario:hover { background: var(--rojo-hover); color: #fff; transform: translateY(-2px); }
@@ -461,13 +463,13 @@ body.menu-abierto { overflow: hidden; }
   width: 56px; height: 56px;
   display: grid; place-items: center;
   border-radius: 50%;
-  background: var(--whatsapp);
+  background: #25D366; /* verde oficial de WhatsApp */
   color: #fff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   transition: transform var(--trans), background-color var(--trans);
 }
-.wa-flotante:hover { background: var(--whatsapp-hover); color: #fff; transform: scale(1.06); }
-.wa-flotante svg { width: 30px; height: 30px; }
+.wa-flotante:hover { background: #1EBE5A; color: #fff; transform: scale(1.06); }
+.wa-flotante img { width: 32px; height: 32px; }
 
 /* 7. SECCIONES DE LA HOME -------------------------------------------------- */
 
@@ -545,8 +547,8 @@ body.menu-abierto { overflow: hidden; }
   font-size: var(--t-sm);
 }
 @media (min-width: 640px) { .burbuja { right: -24px; } }
-.burbuja__ico { width: 36px; height: 36px; border-radius: 50%; background: var(--whatsapp); color: #fff; display: grid; place-items: center; flex-shrink: 0; }
-.burbuja__ico svg { width: 20px; height: 20px; }
+.burbuja__ico { width: 36px; height: 36px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; flex-shrink: 0; }
+.burbuja__ico img { width: 20px; height: 20px; }
 .burbuja strong { display: block; font-size: var(--t-xs); color: var(--texto-2); font-weight: 500; }
 
 /* Banda de cifras */
