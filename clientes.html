@@ -253,6 +253,67 @@
     <img src="images/whatsapp-blanco.png" alt="" width="32" height="32">
   </a>
 
+
+  <!--
+    POP-UP DE DESCUENTO
+    Los datos se envían a info@leonettcommunity.com con FormSubmit (formsubmit.co), sin servidor propio.
+    La primera vez que alguien lo complete, FormSubmit enviará un correo de activación a esa casilla:
+    hay que abrirlo y confirmar. Desde ahí, cada registro llega como un correo.
+    Para cambiar el correo de destino, edita "popupDestino" en js/main.js.
+  -->
+  <dialog class="popup" id="popup-descuento" aria-labelledby="popup-titulo">
+    <button class="popup__cerrar" type="button" data-cerrar aria-label="Cerrar">&times;</button>
+    <div class="popup__lado" aria-hidden="true">
+      <img class="popup__logo" src="images/logo-mark.svg" alt="" width="44" height="42">
+      <p class="popup__kicker">Oferta de bienvenida</p>
+      <p class="popup__pct"><strong>5%</strong><span>de descuento</span></p>
+      <ul class="popup__beneficios">
+        <li>En tu primer servicio</li>
+        <li>Ofertas exclusivas</li>
+        <li>Sin spam</li>
+      </ul>
+    </div>
+    <div class="popup__cuerpo">
+      <div class="popup__paso">
+        <p class="eyebrow">Solo por registrarte</p>
+        <h2 id="popup-titulo" tabindex="-1" autofocus>Ten un 5% de descuento</h2>
+        <p class="popup__texto">Déjanos tu información y te enviaremos ofertas y descuentos exclusivos para hacer crecer tu marca.</p>
+        <form class="popup__form" id="form-popup" novalidate>
+          <div class="campo">
+            <label for="p-nombre">Nombre</label>
+            <input id="p-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80" placeholder="Tu nombre" aria-describedby="pe-nombre">
+            <p class="campo__error" id="pe-nombre"></p>
+          </div>
+          <div class="campo">
+            <label for="p-email">Correo electrónico</label>
+            <input id="p-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120" placeholder="nombre@correo.com" aria-describedby="pe-email">
+            <p class="campo__error" id="pe-email"></p>
+          </div>
+          <div class="campo">
+            <label for="p-telefono">Número de contacto</label>
+            <input id="p-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+()\s-]{8,20}" maxlength="20" placeholder="+56 9 1234 5678" aria-describedby="pe-telefono">
+            <p class="campo__error" id="pe-telefono"></p>
+          </div>
+          <div class="campo campo--check">
+            <input id="p-acepto" name="acepto" type="checkbox" required value="Sí" aria-describedby="pe-acepto">
+            <label for="p-acepto">Acepto recibir ofertas de Leonett Community y puedo darme de baja cuando quiera. <a href="privacidad.html">Política de privacidad</a></label>
+            <p class="campo__error" id="pe-acepto"></p>
+          </div>
+          <input class="trampa" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn--primario btn--lg" type="submit">Quiero mi 5% de descuento</button>
+          <p class="form__estado" role="status" aria-live="polite"></p>
+        </form>
+        <button class="popup__no" type="button" data-cerrar>No, gracias</button>
+      </div>
+      <div class="popup__ok" hidden>
+        <p class="popup__check" aria-hidden="true">✓</p>
+        <h2>¡Listo, ya estás registrado!</h2>
+        <p class="popup__texto">Te enviaremos tu 5% de descuento y nuestras próximas ofertas a tu correo.</p>
+        <button class="btn btn--primario" type="button" data-cerrar>Seguir navegando</button>
+      </div>
+    </div>
+  </dialog>
+
   <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -14,7 +14,13 @@
     whatsapp: "56949955184",
 
     // Página a la que se redirige después de enviar el formulario por Formspree.
-    paginaGracias: "gracias.html"
+    paginaGracias: "gracias.html",
+
+    // Pop-up de descuento: correo que recibe los registros y segundos antes de mostrarlo.
+    popupDestino: "info@leonettcommunity.com",
+    popupSegundos: 10,
+    // Días que el pop-up no vuelve a aparecer si la persona lo cierra.
+    popupDiasPausa: 7
   };
 
   /* --- Menú móvil -------------------------------------------------------- */
@@ -103,7 +109,9 @@
     nombre: "Escribe tu nombre.",
     email: "Escribe un email válido, por ejemplo nombre@empresa.cl.",
     empresa: "Escribe el nombre de tu empresa o marca.",
-    mensaje: "Cuéntanos en una o dos líneas qué necesitas."
+    mensaje: "Cuéntanos en una o dos líneas qué necesitas.",
+    telefono: "Escribe un número de contacto válido, por ejemplo +56 9 1234 5678.",
+    acepto: "Marca esta casilla para recibir las ofertas."
   };
 
   function mostrarError(campo, texto) {
@@ -211,6 +219,121 @@
     });
   }
 
+  /* --- Pop-up de descuento --------------------------------------------- */
+  var CLAVE_POPUP = "lc-popup-descuento";
+
+  function leerPopup() {
+    try { return JSON.parse(localStorage.getItem(CLAVE_POPUP) || "null"); } catch (e) { return null; }
+  }
+  function guardarPopup(estado) {
+    try { localStorage.setItem(CLAVE_POPUP, JSON.stringify({ estado: estado, fecha: Date.now() })); } catch (e) {}
+  }
+  function debeMostrarPopup() {
+    if (/gracias|404/.test(window.location.pathname)) return false;
+    var guardado = leerPopup();
+    if (!guardado) return true;
+    if (guardado.estado === "registrado") return false;
+    return Date.now() - guardado.fecha > CONFIG.popupDiasPausa * 86400000;
+  }
+
+  function iniciarPopup() {
+    var dialogo = document.getElementById("popup-descuento");
+    if (!dialogo || typeof dialogo.showModal !== "function" || !debeMostrarPopup()) return;
+
+    var form = document.getElementById("form-popup");
+    var ok = dialogo.querySelector(".popup__ok");
+    var estado = form.querySelector(".form__estado");
+    var boton = form.querySelector('button[type="submit"]');
+    var campos = form.querySelectorAll("input:not(.trampa)");
+    var mostrado = false;
+
+    function abrir() {
+      if (mostrado || document.querySelector(".nav.is-open")) return;
+      mostrado = true;
+      dialogo.showModal();
+    }
+    function cerrar() {
+      if (dialogo.open) dialogo.close();
+    }
+
+    // Se muestra después de unos segundos o al recorrer la mitad de la página, lo que ocurra primero.
+    var temporizador = setTimeout(abrir, CONFIG.popupSegundos * 1000);
+    function alHacerScroll() {
+      var alto = document.documentElement.scrollHeight - window.innerHeight;
+      if (alto > 0 && window.scrollY / alto > 0.5) {
+        window.removeEventListener("scroll", alHacerScroll);
+        clearTimeout(temporizador);
+        abrir();
+      }
+    }
+    window.addEventListener("scroll", alHacerScroll, { passive: true });
+
+    dialogo.addEventListener("click", function (e) {
+      if (e.target.closest("[data-cerrar]") || e.target === dialogo) cerrar();
+    });
+    dialogo.addEventListener("close", function () {
+      if (!leerPopup() || leerPopup().estado !== "registrado") guardarPopup("cerrado");
+    });
+
+    campos.forEach(function (campo) {
+      campo.addEventListener("blur", function () { validarCampo(campo); });
+      campo.addEventListener("input", function () {
+        if (campo.closest(".campo").classList.contains("tiene-error")) validarCampo(campo);
+      });
+      campo.addEventListener("change", function () {
+        if (campo.type === "checkbox") validarCampo(campo);
+      });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      estado.textContent = "";
+      estado.classList.remove("es-error");
+
+      var primeroInvalido = null;
+      campos.forEach(function (campo) {
+        if (!validarCampo(campo) && !primeroInvalido) primeroInvalido = campo;
+      });
+      if (primeroInvalido) { primeroInvalido.focus(); return; }
+
+      var datos = new FormData(form);
+      if (datos.get("_honey")) return;
+
+      var cuerpo = {
+        _subject: "Nuevo registro: descuento 5% (sitio web)",
+        _template: "table",
+        Nombre: datos.get("nombre"),
+        Correo: datos.get("email"),
+        Telefono: datos.get("telefono"),
+        "Acepta ofertas": "Sí",
+        Pagina: window.location.href
+      };
+
+      boton.disabled = true;
+      boton.textContent = "Enviando…";
+
+      fetch("https://formsubmit.co/ajax/" + CONFIG.popupDestino, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(cuerpo)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (String(res.success) !== "true") throw new Error(res.message || "Error");
+          guardarPopup("registrado");
+          dialogo.querySelector(".popup__paso").hidden = true;
+          ok.hidden = false;
+          ok.querySelector("button").focus();
+        })
+        .catch(function () {
+          boton.disabled = false;
+          boton.textContent = "Quiero mi 5% de descuento";
+          estado.textContent = "No pudimos enviar tus datos. Inténtalo de nuevo o escríbenos por WhatsApp.";
+          estado.classList.add("es-error");
+        });
+    });
+  }
+
   /* --- Año del copyright -------------------------------------------------- */
   function iniciarAnio() {
     var el = document.getElementById("anio");
@@ -222,6 +345,7 @@
     iniciarHeader();
     iniciarReveal();
     iniciarFormulario();
+    iniciarPopup();
     iniciarAnio();
   });
 })();
