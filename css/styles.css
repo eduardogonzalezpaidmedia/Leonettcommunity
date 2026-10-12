@@ -1103,3 +1103,16 @@ body.menu-abierto { overflow: hidden; }
   .nav__cta { margin-left: var(--s-2); }
   .nav__cta .btn { padding-inline: 0.875rem; }
 }
+
+.incluye { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-4); }
+@media (min-width: 640px) { .incluye { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .incluye { grid-template-columns: repeat(5, 1fr); } }
+.incluye__item {
+  background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio);
+  padding: var(--s-5); box-shadow: var(--sombra);
+  display: flex; gap: var(--s-4); align-items: flex-start;
+}
+@media (min-width: 1024px) { .incluye__item { flex-direction: column; } }
+.incluye__ico { width: 52px; height: 52px; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%; background: var(--rojo-suave); font-size: 1.625rem; line-height: 1; }
+.incluye__item h3 { font-size: 1.125rem; margin-bottom: var(--s-1); }
+.incluye__item p { margin: 0; font-size: var(--t-sm); color: var(--texto-2); }
