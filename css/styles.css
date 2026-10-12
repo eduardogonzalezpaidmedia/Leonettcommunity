@@ -1116,3 +1116,10 @@ body.menu-abierto { overflow: hidden; }
 .incluye__ico { width: 52px; height: 52px; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%; background: var(--rojo-suave); font-size: 1.625rem; line-height: 1; }
 .incluye__item h3 { font-size: 1.125rem; margin-bottom: var(--s-1); }
 .incluye__item p { margin: 0; font-size: var(--t-sm); color: var(--texto-2); }
+
+.ficha__cupos { margin: 0 0 var(--s-2); font-size: var(--t-sm); font-weight: 500; color: var(--texto) !important; }
+.ficha__cupos strong { color: var(--rojo); }
+.ficha__barra { height: 6px; border-radius: 999px; background: var(--hueso); margin-bottom: var(--s-4); overflow: hidden; }
+.ficha__barra span { display: block; height: 100%; width: 0; background: var(--rojo); border-radius: 999px; }
+.ficha__agotado { font-family: var(--f-titulo); font-size: 1.5rem; font-weight: 700; color: var(--rojo) !important; text-align: center; margin: 0 0 var(--s-3); }
+[data-si-cupos][hidden], [data-sin-cupos][hidden] { display: none !important; }

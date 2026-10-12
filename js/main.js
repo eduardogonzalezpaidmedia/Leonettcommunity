@@ -17,6 +17,11 @@
     paginaGracias: "gracias.html",
 
     // Pop-up de descuento: correo que recibe los registros y segundos antes de mostrarlo.
+    // TALLER: cupos que quedan disponibles. Cada vez que alguien pague, resta 1.
+    // Con 0, el sitio muestra "Cupos agotados" y oculta los botones de pago.
+    tallerCuposDisponibles: 6,
+    tallerCuposTotales: 6,
+
     popupDestino: "info@leonettcommunity.com",
     // Formulario "Web 5%" de Brevo: guarda cada registro en la lista "Descuento 5%".
     brevoForm: "https://5ae0d0ec.sibforms.com/serve/MUIFAEcJuZtoJ3y3w3ap8wlTQxs7yPtEvB3KsPSTWcZMxEnJ7XDpX2rQ0bvmqDLJYaXrhvyrST30m5QljlZ9kj7UosBZEyCLY345vM9V01aElRLv0j1cILwj23ugCh0n8xSL2gsq-LTq6fdYckSI944hRgaZZuMXxrLZF_HVNhKpm_ZDfDYpR3jHNHMNe_a4G9uk01w-huK1ntmAXw==",
@@ -359,6 +364,27 @@
     });
   }
 
+  /* --- Cupos del taller ------------------------------------------------- */
+  function iniciarCupos() {
+    var libres = Math.max(0, CONFIG.tallerCuposDisponibles);
+    var total = CONFIG.tallerCuposTotales;
+    document.querySelectorAll("[data-cupos-num]").forEach(function (el) { el.textContent = String(libres); });
+    document.querySelectorAll("[data-cupos-barra]").forEach(function (el) {
+      el.style.width = Math.round(((total - libres) / total) * 100) + "%";
+    });
+    if (libres === 1) {
+      document.querySelectorAll("[data-cupos-texto]").forEach(function (el) {
+        el.innerHTML = el.innerHTML.replace("Quedan", "Queda").replace(/(<\/strong>[^<]*?)cupos/, "$1cupo");
+      });
+    }
+    if (libres === 0) {
+      document.querySelectorAll("[data-si-cupos]").forEach(function (el) { el.hidden = true; });
+      document.querySelectorAll("[data-sin-cupos]").forEach(function (el) { el.hidden = false; });
+      document.querySelectorAll("[data-cupos-texto]").forEach(function (el) { el.textContent = "Cupos agotados"; });
+      document.querySelectorAll(".ficha__cupos").forEach(function (el) { el.hidden = true; });
+    }
+  }
+
   /* --- Año del copyright -------------------------------------------------- */
   function iniciarAnio() {
     var el = document.getElementById("anio");
@@ -371,6 +397,7 @@
     iniciarReveal();
     iniciarFormulario();
     iniciarPopup();
+    iniciarCupos();
     iniciarAnio();
   });
 })();
