@@ -1123,3 +1123,13 @@ body.menu-abierto { overflow: hidden; }
 .ficha__barra span { display: block; height: 100%; width: 0; background: var(--rojo); border-radius: 999px; }
 .ficha__agotado { font-family: var(--f-titulo); font-size: 1.5rem; font-weight: 700; color: var(--rojo) !important; text-align: center; margin: 0 0 var(--s-3); }
 [data-si-cupos][hidden], [data-sin-cupos][hidden] { display: none !important; }
+.aviso-taller__fecha { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.aviso-taller__fecha strong { line-height: 1; }
+.aviso-taller__fecha span { line-height: 1; }
+@media (max-width: 799px) {
+  .aviso-taller { padding-block: var(--s-5); }
+  .aviso-taller__inner { grid-template-columns: auto 1fr; }
+  .aviso-taller__fecha { width: 64px; height: 64px; border-radius: 12px; }
+  .aviso-taller__fecha strong { font-size: 1.75rem; }
+  .aviso-taller .btn { grid-column: 1 / -1; width: 100%; }
+}
