@@ -1,0 +1,3 @@
+# Redirecciones permanentes (Cloudflare Pages)
+/marcas-atendidas.html  /clientes.html  301
+/casos-de-exito.html    /clientes.html  301
