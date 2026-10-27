@@ -111,6 +111,12 @@
     elementos.forEach(function (el) { observador.observe(el); });
   }
 
+  /* --- Medición: envía un evento a Google Tag Manager (ver js/medicion.js) --- */
+  function medir(datos) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(datos);
+  }
+
   /* --- Formulario de contacto -------------------------------------------- */
   var MENSAJES = {
     nombre: "Escribe tu nombre.",
@@ -201,6 +207,7 @@
 
       // Sin Formspree configurado, el formulario se envía por WhatsApp.
       if (!formspreeListo) {
+        medir({ event: "generate_lead", formulario: "contacto", metodo: "whatsapp", servicio: datos.get("servicio") || "", presupuesto: datos.get("presupuesto") || "" });
         window.location.href = armarWhatsApp(datos);
         return;
       }
@@ -215,6 +222,7 @@
       })
         .then(function (respuesta) {
           if (!respuesta.ok) throw new Error("Respuesta " + respuesta.status);
+          medir({ event: "generate_lead", formulario: "contacto", metodo: "email", servicio: datos.get("servicio") || "", presupuesto: datos.get("presupuesto") || "" });
           window.location.href = CONFIG.paginaGracias;
         })
         .catch(function () {
@@ -258,6 +266,7 @@
       if (mostrado || document.querySelector(".nav.is-open")) return;
       mostrado = true;
       dialogo.showModal();
+      medir({ event: "popup_descuento_visto" });
     }
     function cerrar() {
       if (dialogo.open) dialogo.close();
@@ -351,6 +360,7 @@
         .then(function (resultados) {
           if (!resultados[0] && !resultados[1]) throw new Error("Sin envío");
           guardarPopup("registrado");
+          medir({ event: "generate_lead", formulario: "descuento_5", metodo: "popup" });
           dialogo.querySelector(".popup__paso").hidden = true;
           ok.hidden = false;
           ok.querySelector("button").focus();

@@ -16,6 +16,7 @@ terminos.html         Términos y condiciones (borrador)
 404.html              Página de error
 css/styles.css        Todos los estilos
 js/main.js            Menú, animaciones y formulario
+js/medicion.js        Google Tag Manager (GTM-KVX25G84), aviso de cookies y eventos
 fonts/                Playfair Display y Poppins (licencia OFL incluida)
 images/               Logos, ícono e imagen para redes
 favicon.svg · robots.txt · sitemap.xml · .htaccess
