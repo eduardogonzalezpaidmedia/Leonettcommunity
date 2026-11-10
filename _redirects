@@ -1,3 +1,7 @@
 # Redirecciones permanentes (Cloudflare Pages)
 /marcas-atendidas.html  /clientes.html  301
 /casos-de-exito.html    /clientes.html  301
+
+# Talleres oculto temporalmente hasta nueva fecha (302 = temporal)
+/talleres.html  /servicios.html#talleres  302
+/talleres       /servicios.html#talleres  302
