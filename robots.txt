@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://leonettcommunity.com/sitemap.xml
+
+Disallow: /social/
