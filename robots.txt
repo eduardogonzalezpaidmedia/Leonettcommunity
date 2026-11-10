@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /social/
 
 Sitemap: https://leonettcommunity.com/sitemap.xml
-
-Disallow: /social/
