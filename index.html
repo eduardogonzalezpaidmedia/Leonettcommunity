@@ -68,6 +68,8 @@
   </header>
 
   <main id="contenido">
+    <!-- Franja Black Friday (se oculta sola después del 5 de diciembre de 2026) -->
+    <a class="bf-franja" href="#black-friday" data-promo-hasta="2026-12-05T23:59:59-03:00"><strong>Black Friday</strong> · Hasta 29% de descuento hasta el 5 de diciembre <span aria-hidden="true">→</span></a>
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-titulo">
       <div class="container hero__grid">
@@ -95,6 +97,153 @@
             <div class="panel__eje"><span>Semana 1</span><span>Semana 7</span></div>
             <div class="chips"><span class="chip">Reel</span><span class="chip">Carrusel</span><span class="chip">Historia</span><span class="chip">Anuncio</span></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLACK FRIDAY — válido hasta el 5 de diciembre de 2026.
+         Se oculta solo después de esa fecha (js/main.js → iniciarPromos).
+         Para quitarla antes, borra este bloque o agrega "hidden" a la etiqueta <section>. -->
+    <section class="bf" id="black-friday" data-promo-hasta="2026-12-05T23:59:59-03:00" aria-labelledby="bf-titulo">
+      <div class="container">
+        <div class="bf__cabeza reveal">
+          <h2 id="bf-titulo" class="bf-banda">Black Friday</h2>
+          <p class="bf__bajada">Hasta un 29% de descuento en servicios, planes de manejo de redes y talleres de Meta Ads.</p>
+          <div class="bf-cupos">
+            <span class="bf-cupos__ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7.5 14h.01M12 14h.01M16.5 14h.01M7.5 17.5h.01M12 17.5h.01" stroke-width="2.6"/></svg></span>
+            <span class="bf-cupos__txt"><strong>¡Pocos cupos!</strong> Válido hasta el 5 de diciembre.</span>
+            <span class="bf-cupos__cuenta" data-cuenta-hasta="2026-12-05T23:59:59-03:00" hidden>Termina en <b data-u="d">0</b>d <b data-u="h">0</b>h <b data-u="m">0</b>m</span>
+          </div>
+        </div>
+
+        <div class="bf__grupo">
+          <h3 class="bf__subtitulo reveal">Servicios individuales</h3>
+          <div class="bf-grid reveal">
+          <article class="bf-card">
+            <span class="bf-card__dcto">-20%</span>
+            <h4>Campañas de Meta Ads</h4>
+            <p class="bf-card__sub">Llega a más clientes con publicidad estratégica y medible.</p>
+            <div class="bf-incluye"><p class="bf-incluye__titulo">Incluye:</p><ul><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Planificación de la campaña.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Configuración en Meta Ads.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Seguimiento y optimización.</span></li></ul></div>
+            <div class="bf-precio"><span class="bf-precio__antes">Antes <s>$100.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$79.990</span></div>
+            
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Campa%C3%B1as%20de%20Meta%20Ads" target="_blank" rel="noopener noreferrer" data-bf="Campañas de Meta Ads">Lo quiero<span class="sr-only">: Campañas de Meta Ads</span></a>
+          </article>
+          <article class="bf-card">
+            <span class="bf-card__dcto">-20%</span>
+            <h4>Google Ads</h4>
+            <p class="bf-card__sub">Aparece en Google cuando tus clientes te buscan.</p>
+            <div class="bf-incluye"><p class="bf-incluye__titulo">Incluye:</p><ul><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Configuración de la campaña.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Selección de palabras clave.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Seguimiento y optimización.</span></li></ul></div>
+            <div class="bf-precio"><span class="bf-precio__antes">Antes <s>$100.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$80.000</span></div>
+            
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Google%20Ads" target="_blank" rel="noopener noreferrer" data-bf="Google Ads">Lo quiero<span class="sr-only">: Google Ads</span></a>
+          </article>
+          <article class="bf-card">
+            <span class="bf-card__dcto">-26%</span>
+            <h4>Landing page</h4>
+            <p class="bf-card__sub">Convierte tus visitas en potenciales clientes.</p>
+            <div class="bf-incluye"><p class="bf-incluye__titulo">Incluye:</p><ul><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Diseño personalizado para tu negocio.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Adaptación a dispositivos móviles.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Botón de contacto por WhatsApp.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Presentación de tus productos o servicios.</span></li></ul></div>
+            <div class="bf-precio"><span class="bf-precio__antes">Antes <s>$135.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$100.000</span></div>
+            <p class="bf-card__nota">No incluye dominio ni hosting.</p>
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Landing%20page" target="_blank" rel="noopener noreferrer" data-bf="Landing page">Lo quiero<span class="sr-only">: Landing page</span></a>
+          </article>
+          <article class="bf-card">
+            <span class="bf-card__dcto">-29%</span>
+            <h4>Creación de redes sociales</h4>
+            <p class="bf-card__sub">Pon tu negocio en redes de forma profesional y lista para crecer.</p>
+            <div class="bf-incluye"><p class="bf-incluye__titulo">Incluye:</p><ul><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Creación de tus redes (Instagram, Facebook y TikTok).</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Configuración del perfil profesional (Meta Business).</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Optimización inicial (bio, categorías, contacto y enlaces).</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Imagen de perfil y portada acorde a tu marca.</span></li></ul></div>
+            <div class="bf-precio"><span class="bf-precio__antes">Antes <s>$70.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$50.000</span></div>
+            
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Creaci%C3%B3n%20de%20redes%20sociales" target="_blank" rel="noopener noreferrer" data-bf="Creación de redes sociales">Lo quiero<span class="sr-only">: Creación de redes sociales</span></a>
+          </article>
+          <article class="bf-card">
+            <span class="bf-card__dcto">-18%</span>
+            <h4>Grabación y edición de 3 videos</h4>
+            <p class="bf-card__sub">Contenido profesional para tus redes sociales.</p>
+            <div class="bf-incluye"><p class="bf-incluye__titulo">Incluye:</p><ul><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Grabación de 3 videos (formato vertical).</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Edición profesional (cortes, textos y música).</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Optimización para Instagram, Facebook y TikTok.</span></li></ul></div>
+            <div class="bf-precio"><span class="bf-precio__antes">Antes <s>$170.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$139.990</span></div>
+            
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Grabaci%C3%B3n%20y%20edici%C3%B3n%20de%203%20videos" target="_blank" rel="noopener noreferrer" data-bf="Grabación y edición de 3 videos">Lo quiero<span class="sr-only">: Grabación y edición de 3 videos</span></a>
+          </article>
+          <article class="bf-card">
+            <span class="bf-card__dcto">-20%</span>
+            <h4>Grabación y edición de 10 videos</h4>
+            <p class="bf-card__sub">Ten contenido profesional y constante para tus redes sociales.</p>
+            <div class="bf-incluye"><p class="bf-incluye__titulo">Incluye:</p><ul><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cortes dinámicos, textos, música y subtítulos.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Formatos listos para Instagram, Facebook y TikTok.</span></li></ul></div>
+            <div class="bf-precio"><span class="bf-precio__antes">Antes <s>$500.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$399.990</span></div>
+            
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Grabaci%C3%B3n%20y%20edici%C3%B3n%20de%2010%20videos" target="_blank" rel="noopener noreferrer" data-bf="Grabación y edición de 10 videos">Lo quiero<span class="sr-only">: Grabación y edición de 10 videos</span></a>
+          </article>
+          <article class="bf-card">
+            <span class="bf-card__dcto">-27%</span>
+            <h4>Configuración de cuentas publicitarias</h4>
+            <p class="bf-card__sub">Deja tus cuentas listas para empezar a anunciar.</p>
+            
+            <div class="bf-precio"><span class="bf-precio__antes">Antes <s>$55.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$39.990</span></div>
+            
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Configuraci%C3%B3n%20de%20cuentas%20publicitarias" target="_blank" rel="noopener noreferrer" data-bf="Configuración de cuentas publicitarias">Lo quiero<span class="sr-only">: Configuración de cuentas publicitarias</span></a>
+          </article>
+          </div>
+        </div>
+
+        <div class="bf__grupo">
+          <h3 class="bf__subtitulo reveal">Manejo de redes sociales</h3>
+          <div class="bf-grid bf-grid--2 reveal">
+          <article class="bf-card bf-card--plan">
+            <h4>Plan Community</h4>
+            <p class="bf-card__sub">Nos encargamos de tus redes para que tu negocio crezca.</p>
+            <div class="bf-incluye"><p class="bf-incluye__titulo">Incluye:</p><ul><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Planificación de contenido mensual.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Diseño y publicación de piezas (feed, historias y reels).</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Gestión y optimización de campañas Meta Ads.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reporte de resultados mensual.</span></li></ul></div>
+            <div class="bf-videos"><strong>Grabación y edición de 6 videos mensuales</strong><span>para Instagram, Facebook y TikTok</span></div>
+            <p class="bf-plan__habitual">Precio habitual <s>$450.000</s> al mes</p>
+            <ul class="bf-meses"><li><span>1º mes</span><strong>$350.000</strong></li><li><span>2º mes</span><strong>$400.000</strong></li><li><span>3º mes</span><strong>$400.000</strong></li><li><span>Desde el 4º mes</span><strong>$450.000</strong></li></ul>
+            <p class="bf-plan__ahorro">Ahorras <strong>$200.000</strong> · Contratación mínima de 3 meses</p>
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Plan%20Community" target="_blank" rel="noopener noreferrer" data-bf="Plan Community">Quiero el Plan Community</a>
+          </article>
+          <article class="bf-card bf-card--plan bf-card--destacado">
+            <h4>Plan Premium</h4>
+            <p class="bf-card__sub">Más contenido cada mes para marcas que quieren crecer más rápido.</p>
+            <div class="bf-incluye"><p class="bf-incluye__titulo">Incluye:</p><ul><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Planificación de contenido mensual.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Diseño y publicación de piezas (feed, historias y reels).</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Gestión y optimización de campañas Meta Ads.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reporte de resultados mensual.</span></li></ul></div>
+            <div class="bf-videos"><strong>Grabación y edición de 10 videos mensuales</strong><span>para Instagram, Facebook y TikTok</span></div>
+            <p class="bf-plan__habitual">Precio habitual <s>$750.000</s> al mes</p>
+            <ul class="bf-meses"><li><span>1º mes</span><strong>$600.000</strong></li><li><span>2º mes</span><strong>$620.000</strong></li><li><span>3º mes</span><strong>$650.000</strong></li><li><span>Desde el 4º mes</span><strong>$750.000</strong></li></ul>
+            <p class="bf-plan__ahorro">Ahorras <strong>$380.000</strong> · Contratación mínima de 3 meses</p>
+            <a class="btn btn--primario bf-card__btn" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Plan%20Premium" target="_blank" rel="noopener noreferrer" data-bf="Plan Premium">Quiero el Plan Premium</a>
+          </article>
+          </div>
+        </div>
+
+        <div class="bf__grupo">
+          <h3 class="bf__subtitulo reveal">Talleres Meta Ads con Sarai Leonett</h3>
+          <ul class="bf-talleres reveal">
+            <li class="bf-taller">
+              <span class="bf-taller__nombre">Grupal presencial</span>
+              <span class="bf-precio bf-precio--chico"><span class="bf-precio__antes">Antes <s>$75.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$59.990</span></span>
+              <a class="bf-taller__cta" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Taller%20Meta%20Ads%20grupal%20presencial" target="_blank" rel="noopener noreferrer" data-bf="Taller Grupal presencial">Lo quiero<span class="sr-only">: taller Grupal presencial</span></a>
+            </li>
+            <li class="bf-taller">
+              <span class="bf-taller__nombre">Personalizado online</span>
+              <span class="bf-precio bf-precio--chico"><span class="bf-precio__antes">Antes <s>$95.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$69.990</span></span>
+              <a class="bf-taller__cta" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Taller%20Meta%20Ads%20personalizado%20online" target="_blank" rel="noopener noreferrer" data-bf="Taller Personalizado online">Lo quiero<span class="sr-only">: taller Personalizado online</span></a>
+            </li>
+            <li class="bf-taller">
+              <span class="bf-taller__nombre">Personalizado presencial</span>
+              <span class="bf-precio bf-precio--chico"><span class="bf-precio__antes">Antes <s>$120.000</s></span><span class="bf-precio__ahora"><span class="sr-only">Ahora: </span>$99.990</span></span>
+              <a class="bf-taller__cta" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20la%20promo%20Black%20Friday%3A%20Taller%20Meta%20Ads%20personalizado%20presencial" target="_blank" rel="noopener noreferrer" data-bf="Taller Personalizado presencial">Lo quiero<span class="sr-only">: taller Personalizado presencial</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bf__pie reveal">
+          <div class="bf__condiciones">
+            <h3>Condiciones</h3>
+            <ul>
+              <li>Ofertas de servicios hasta el 5 de diciembre.</li>
+              <li>Cupos limitados.</li>
+              <li>Pago completo para acceder a la promoción.</li>
+              <li>Ejecución previa coordinación.</li>
+              <li>Planes Community con contratación mínima de 3 meses.</li>
+            </ul>
+          </div>
+          <a class="btn btn--whatsapp btn--lg" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20las%20promociones%20Black%20Friday" target="_blank" rel="noopener noreferrer" data-bf="General"><img class="ico-wa" src="images/whatsapp-blanco.png" alt="" width="20" height="20"> Reserva tu cupo por WhatsApp</a>
         </div>
       </div>
     </section>

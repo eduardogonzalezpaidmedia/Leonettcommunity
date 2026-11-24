@@ -395,6 +395,44 @@
     }
   }
 
+  /* --- Promociones con fecha de término (Black Friday) ------------------- */
+  // Todo elemento con data-promo-hasta="AAAA-MM-DDTHH:MM:SS-03:00" se oculta
+  // solo cuando pasa esa fecha. La cuenta regresiva usa data-cuenta-hasta.
+  function iniciarPromos() {
+    var ahora = Date.now();
+    document.querySelectorAll("[data-promo-hasta]").forEach(function (el) {
+      var fin = Date.parse(el.getAttribute("data-promo-hasta"));
+      if (!isNaN(fin) && ahora > fin) el.hidden = true;
+    });
+
+    // Medición: clic en cualquier botón de la promo (evento "promo_black_friday" en GTM).
+    document.querySelectorAll("[data-bf]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        medir({ event: "promo_black_friday", promo_item: a.getAttribute("data-bf") });
+      });
+    });
+
+    var cuenta = document.querySelector("[data-cuenta-hasta]");
+    if (!cuenta) return;
+    var finCuenta = Date.parse(cuenta.getAttribute("data-cuenta-hasta"));
+    if (isNaN(finCuenta)) return;
+    var d = cuenta.querySelector('[data-u="d"]');
+    var h = cuenta.querySelector('[data-u="h"]');
+    var m = cuenta.querySelector('[data-u="m"]');
+    function pintar() {
+      var resto = finCuenta - Date.now();
+      if (resto <= 0) { cuenta.hidden = true; return false; }
+      d.textContent = Math.floor(resto / 86400000);
+      h.textContent = Math.floor(resto / 3600000) % 24;
+      m.textContent = Math.floor(resto / 60000) % 60;
+      return true;
+    }
+    if (pintar()) {
+      cuenta.hidden = false;
+      var reloj = setInterval(function () { if (!pintar()) clearInterval(reloj); }, 30000);
+    }
+  }
+
   /* --- Año del copyright -------------------------------------------------- */
   function iniciarAnio() {
     var el = document.getElementById("anio");
@@ -408,6 +446,7 @@
     iniciarFormulario();
     iniciarPopup();
     iniciarCupos();
+    iniciarPromos();
     iniciarAnio();
   });
 })();
