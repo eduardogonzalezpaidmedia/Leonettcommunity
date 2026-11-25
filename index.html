@@ -33,7 +33,8 @@
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preload" href="fonts/playfair-display.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=20261124">
+  <link rel="preload" href="images/hero-sarai.webp" as="image" type="image/webp" imagesrcset="images/hero-sarai-464.webp 464w, images/hero-sarai.webp 928w" imagesizes="(min-width: 1024px) 560px, 90vw">
+  <link rel="stylesheet" href="css/styles.css?v=20261124b">
   <script>document.documentElement.classList.add("js");</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Leonett Community", "alternateName": ["Leonett", "Leonett Community Chile"], "url": "https://leonettcommunity.com/"}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Leonett Community | Contenido y campañas de Meta Ads en Chile", "url": "https://leonettcommunity.com/", "primaryImageOfPage": {"@type": "ImageObject", "url": "https://leonettcommunity.com/images/og-image.jpg", "width": 1200, "height": 630}, "about": {"@type": "Organization", "name": "Leonett Community"}}</script>
@@ -71,32 +72,21 @@
     <!-- Franja Black Friday (se oculta sola después del 5 de diciembre de 2026) -->
     <a class="bf-franja" href="#black-friday" data-promo-hasta="2026-12-05T23:59:59-03:00"><strong>Black Friday</strong> · Hasta 29% de descuento hasta el 5 de diciembre <span aria-hidden="true">→</span></a>
     <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-titulo">
+    <section class="hero hero--oscuro" aria-labelledby="hero-titulo">
       <div class="container hero__grid">
-        <div>
+        <div class="hero__texto">
           <p class="eyebrow">Contenido y publicidad digital</p>
-          <h1 id="hero-titulo">Contenido y campañas que convierten seguidores en <em>clientes</em>.</h1>
+          <h1 id="hero-titulo">Contenido y campañas que convierten seguidores en <em>clientes.</em></h1>
           <p class="lead">Grabamos, editamos, gestionamos tus redes y manejamos tu publicidad en Meta Ads. Un solo equipo y un plan mensual claro para negocios que quieren vender más por redes sociales.</p>
           <div class="acciones">
             <a class="btn btn--primario btn--lg" href="https://wa.me/56949955184?text=Hola%2C%20quiero%20agendar%20un%20diagn%C3%B3stico" target="_blank" rel="noopener noreferrer"><img class="ico-wa" src="images/whatsapp-blanco.png" alt="" width="20" height="20"> Agenda tu diagnóstico</a>
             <a class="btn btn--borde btn--lg" href="#servicios">Ver servicios</a>
           </div>
-          <ul class="hero__confianza">
-            <li>Diagnóstico</li>
-            <li>Respuesta en 24 horas hábiles</li>
-            <li>Desde Santiago para todo Chile</li>
-          </ul>
         </div>
 
-        <!-- Ilustración decorativa hecha con CSS: no muestra datos reales -->
-        <div class="hero__visual">
-          <div class="panel" aria-hidden="true">
-            <div class="panel__top"><span class="panel__estado">Campaña activa</span><span>Meta Ads</span></div>
-            <div class="panel__titulo">Consultas por semana</div>
-            <div class="barras"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="panel__eje"><span>Semana 1</span><span>Semana 7</span></div>
-            <div class="chips"><span class="chip">Reel</span><span class="chip">Carrusel</span><span class="chip">Historia</span><span class="chip">Anuncio</span></div>
-          </div>
+        <!-- Foto de Sarai Leonett con etiquetas (Meta Ads, Estrategia digital, crecimiento) -->
+        <div class="hero__foto">
+          <img src="images/hero-sarai.webp" srcset="images/hero-sarai-464.webp 464w, images/hero-sarai.webp 928w" sizes="(min-width: 1024px) 560px, 90vw" alt="Sarai Leonett, fundadora de Leonett Community" width="928" height="1024" fetchpriority="high">
         </div>
       </div>
     </section>

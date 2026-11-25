@@ -1403,3 +1403,34 @@ a.burbuja:hover .burbuja__flecha { transform: translateX(4px); }
   .bf-cupos__ico { border-right: 0; padding-right: 0; }
   .bf-cupos__txt { text-align: center; }
 }
+
+/* 14. HERO OSCURO CON FOTO DE SARAI ---------------------------------------- */
+.hero--oscuro {
+  background: #061122;
+  color: #fff;
+  padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem) 0;
+  overflow: hidden;
+}
+.hero--oscuro .eyebrow { color: #fff; letter-spacing: 0.22em; }
+.hero--oscuro .eyebrow::before { background: var(--rojo); }
+.hero--oscuro h1 { color: #fff; }
+.hero--oscuro h1 em { color: #E5161D; }
+.hero--oscuro .lead { color: #E6EAEE; }
+.hero--oscuro .btn--borde { color: #fff; border-color: rgba(255, 255, 255, 0.85); }
+.hero--oscuro .btn--borde:hover { background: #fff; color: #061122; border-color: #fff; }
+.hero--oscuro :focus-visible { outline-color: #fff; }
+.hero--oscuro .hero__texto { padding-bottom: var(--s-6); }
+.hero__foto { align-self: end; margin-inline: auto; max-width: 560px; width: 100%; }
+.hero__foto img {
+  width: 100%; height: auto;
+  /* Funde los bordes de la foto con el fondo */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 100%), linear-gradient(to bottom, #000 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 100%), linear-gradient(to bottom, #000 92%, transparent 100%);
+  mask-composite: intersect;
+}
+@media (min-width: 1024px) {
+  .hero--oscuro .hero__grid { grid-template-columns: 1fr 1fr; gap: var(--s-5); align-items: center; }
+  .hero--oscuro .hero__texto { padding-bottom: var(--s-8); }
+  .hero__foto { align-self: end; margin-right: calc(-1 * var(--gutter)); }
+}
